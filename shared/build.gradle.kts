@@ -1,7 +1,7 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    //id("com.apollographql.apollo3")
+    id("com.apollographql.apollo").version(Versions.apollo)
 }
 
 kotlin {
@@ -20,16 +20,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0") {
-                    isForce = true
-                }
-
-                // koin
-                /*api(Koin.core)
-
-                api(Deps.apolloRuntime)
-                api(Deps.apolloNormalizedCache)
-                api(Deps.multiplatformPaging)*/
+                implementation(Dependencies.apolloRuntime)
             }
         }
         val commonTest by getting {
