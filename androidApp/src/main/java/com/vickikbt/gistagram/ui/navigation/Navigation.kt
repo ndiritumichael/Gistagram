@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.vickikbt.gistagram.ui.screens.auth.AuthScreen
 import com.vickikbt.gistagram.ui.screens.home.HomeScreen
 import com.vickikbt.gistagram.ui.screens.notifications.NotificationsScreen
 import com.vickikbt.gistagram.ui.screens.profile.ProfileScreen
@@ -24,7 +25,10 @@ fun Navigation(navController: NavHostController) {
     // val slideDefaultInitialOffset = 1800
     // val slideDefaultTargetOffset = 1500
 
-    NavHost(navController = navController, startDestination = NavigationItem.Home.route) {
+    NavHost(navController = navController, startDestination = NavigationItem.Auth.route) {
+        composable(route = NavigationItem.Auth.route) {
+            AuthScreen(navController = navController)
+        }
         composable(route = NavigationItem.Home.route) {
             HomeScreen(navController = navController)
         }

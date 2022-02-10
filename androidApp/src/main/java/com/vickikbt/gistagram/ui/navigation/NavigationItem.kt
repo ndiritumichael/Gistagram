@@ -10,7 +10,7 @@ sealed class NavigationItem(
     @DrawableRes val icon: Int?,
     val profilePicture: String? = null
 ) {
-    object Auth : NavigationItem("login", R.string.title_login, null)
+    object Auth : NavigationItem("auth", R.string.title_login, null)
 
     object Home : NavigationItem("home", R.string.title_home, R.drawable.ic_home)
     object Search : NavigationItem("search", R.string.title_search, R.drawable.ic_search)
