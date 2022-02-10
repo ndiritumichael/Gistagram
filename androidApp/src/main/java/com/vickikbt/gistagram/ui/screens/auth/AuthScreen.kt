@@ -101,9 +101,9 @@ private fun gitHubAuthFlow(context: Context) {
 fun onResume(context: Context) {
     val uri = context.findActivity()?.intent?.data
 
-    if (uri != null) {
+    uri?.let {
         Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
-        Timber.e("URI: $uri")
+        Timber.e("URI: $it")
     }
 }
 
