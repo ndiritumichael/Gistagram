@@ -18,8 +18,11 @@ object Dependencies {
     const val lifeCycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
     const val accompanistNavigationAnimation =
         "com.google.accompanist:accompanist-navigation-animation:${Versions.accompanist}"
+
+    const val koinCore="io.insert-koin:koin-core:${Versions.koin}"
     const val koinAndroid = "io.insert-koin:koin-android:${Versions.koin}"
     const val koinCompose = "io.insert-koin:koin-androidx-compose:${Versions.koin}"
+
     const val navigation = "androidx.navigation:navigation-compose:${Versions.navigation}"
     const val coil = "io.coil-kt:coil-compose:${Versions.coil}"
     const val palette = "28.0.0"

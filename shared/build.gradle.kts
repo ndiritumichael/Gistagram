@@ -22,6 +22,7 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
+                implementation(Dependencies.koinCore)
                 implementation(Dependencies.ktorCore)
                 implementation(Dependencies.ktorSerialization)
                 implementation(Dependencies.ktorLogging)

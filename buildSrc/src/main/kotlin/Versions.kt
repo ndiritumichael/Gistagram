@@ -10,7 +10,7 @@ object Versions {
     const val composeConstraint = "1.0.0-rc01"
     const val lifecycle = "2.4.0"
     const val accompanist = "0.20.0"
-    const val koin = "3.1.2"
+    const val koin = "3.1.5" //3.0.0-alpha-2
     const val navigation = "2.4.0-alpha02"
     const val coil = "1.4.0"
     const val palette = "28.0.0"
