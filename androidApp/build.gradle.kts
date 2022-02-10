@@ -65,7 +65,7 @@ android {
 
 dependencies {
 
-    //implementation(project(":shared"))
+    implementation(project(":shared"))
 
     implementation(Dependencies.androidCore)
     implementation(Dependencies.appCompat)
@@ -84,7 +84,7 @@ dependencies {
     implementation(Dependencies.lifeCycleRuntime)
 
     //Koin-Dependency injection
-    implementation(Dependencies.koinAndroid)
+    //implementation(Dependencies.koinAndroid)
     implementation(Dependencies.koinCompose)
 
     //OkHttp

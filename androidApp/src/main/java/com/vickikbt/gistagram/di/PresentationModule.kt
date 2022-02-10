@@ -7,7 +7,7 @@ import org.koin.dsl.module
 
 val presentationModule = module {
 
-    viewModel { AuthViewModel() }
+    viewModel { AuthViewModel(get()) }
     viewModel { ProfileViewModel(get()) }
 
 }

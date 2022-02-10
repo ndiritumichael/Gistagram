@@ -87,7 +87,7 @@ fun AuthScreen(navController: NavController, viewModel: AuthViewModel = getViewM
     }
 
     DisposableEffect(key1 = viewModel) {
-        onResume(context = context)
+        onResume(context = context, viewModel = viewModel)
         onDispose { /*ToDo*/ }
     }
 
@@ -98,7 +98,7 @@ private fun gitHubAuthFlow(context: Context) {
     context.startActivity(intent)
 }
 
-fun onResume(context: Context) {
+fun onResume(context: Context, viewModel: AuthViewModel) {
     val uri = context.findActivity()?.intent?.data
 
     if (uri != null && uri.toString().startsWith(Constants.REDIRECT_URL)) {
@@ -106,6 +106,9 @@ fun onResume(context: Context) {
         Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
         Timber.e("URI: $uri")
         Timber.e("Code: $code")
+        code?.let {
+            viewModel.getUserToken(code = it)
+        }
     }
 }
 
