@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("com.apollographql.apollo").version(Versions.apollo)
+    kotlin("plugin.serialization") version Versions.kotlinSerialization
 }
 
 kotlin {
@@ -18,21 +19,36 @@ kotlin {
     }*/
 
     sourceSets {
+
         val commonMain by getting {
             dependencies {
+                implementation(Dependencies.ktorCore)
+                implementation(Dependencies.ktorSerialization)
+                implementation(Dependencies.ktorLogging)
+                implementation(Dependencies.kotlinSerialization)
                 implementation(Dependencies.apolloRuntime)
             }
         }
+
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
             }
         }
+
         val androidMain by getting {
             dependencies {
+                implementation(Dependencies.ktorAndroid)
             }
         }
+
+        /*val iosMain by getting {
+            dependencies {
+                implementation(Dependencies.ktoriOS)
+            }
+        }*/
+
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
@@ -59,11 +75,11 @@ kotlin {
 }
 
 android {
-    compileSdk = 30
+    compileSdk = AndroidSdk.compileSdkVersion
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdk = 21
-        targetSdk = 30
+        minSdk = AndroidSdk.minSdkVersion
+        targetSdk = AndroidSdk.targetSdkVersion
     }
 }
 

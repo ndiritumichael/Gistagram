@@ -22,6 +22,9 @@ object Versions {
     const val pagingCompose = "1.0.0-alpha14"
     const val splashScreen = "1.0.0-beta01"
 
+    const val ktor="1.6.7"
+    const val kotlinSerialization="1.6.10"
+    const val kotlinJsonSerialization="1.3.2"
     const val apollo = "2.4.0"
     const val okhttp = "5.0.0-alpha.2"
 

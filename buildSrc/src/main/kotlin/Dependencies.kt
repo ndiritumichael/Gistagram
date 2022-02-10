@@ -31,6 +31,15 @@ object Dependencies {
     const val pagingCompose = "1.0.0-alpha14"
     const val splashScreen = "androidx.core:core-splashscreen:${Versions.splashScreen}"
 
+    const val ktorCore = "io.ktor:ktor-client-core:${Versions.ktor}"
+    const val ktorAndroid = "io.ktor:ktor-client-android:${Versions.ktor}"
+    const val ktoriOS = "io.ktor:ktor-client-ios:${Versions.ktor}"
+    const val ktorSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
+    const val ktorLogging = "io.ktor:ktor-client-logging:${Versions.ktor}"
+
+    const val kotlinSerialization =
+        "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinJsonSerialization}"
+
     const val apolloRuntime = "com.apollographql.apollo:apollo-runtime:${Versions.apollo}"
     const val apolloCoroutines =
         "com.apollographql.apollo:apollo-coroutines-support:${Versions.apollo}"
