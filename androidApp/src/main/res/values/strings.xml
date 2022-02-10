@@ -9,6 +9,7 @@
     <string name="title_settings">Settings</string>
     <string name="title_issues">Issues</string>
     <string name="title_mentions">Mentions</string>
+    <string name="title_webview">Webview</string>
     <string name="profile_picture">Profile picture</string>
     <string name="repos">Repos</string>
     <string name="followers">Followers</string>
