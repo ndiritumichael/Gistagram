@@ -95,6 +95,9 @@ dependencies {
     implementation(Dependencies.apolloRuntime)
     implementation(Dependencies.apolloCoroutines)
 
+    //Realm
+    compileOnly(Dependencies.realmAndroid)
+
     //Accompanist Libs
     implementation(Dependencies.accompanistNavigationAnimation)
 

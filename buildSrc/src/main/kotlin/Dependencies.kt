@@ -19,7 +19,7 @@ object Dependencies {
     const val accompanistNavigationAnimation =
         "com.google.accompanist:accompanist-navigation-animation:${Versions.accompanist}"
 
-    const val koinCore="io.insert-koin:koin-core:${Versions.koin}"
+    const val koinCore = "io.insert-koin:koin-core:${Versions.koin}"
     const val koinAndroid = "io.insert-koin:koin-android:${Versions.koin}"
     const val koinCompose = "io.insert-koin:koin-androidx-compose:${Versions.koin}"
 
@@ -39,15 +39,14 @@ object Dependencies {
     const val ktoriOS = "io.ktor:ktor-client-ios:${Versions.ktor}"
     const val ktorSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
     const val ktorLogging = "io.ktor:ktor-client-logging:${Versions.ktor}"
-
-    const val kotlinSerialization =
-        "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinJsonSerialization}"
-
+    const val kotlinSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinJsonSerialization}"
     const val apolloRuntime = "com.apollographql.apollo:apollo-runtime:${Versions.apollo}"
-    const val apolloCoroutines =
-        "com.apollographql.apollo:apollo-coroutines-support:${Versions.apollo}"
+    const val apolloCoroutines = "com.apollographql.apollo:apollo-coroutines-support:${Versions.apollo}"
     const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
     const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
+
+    const val realm = "io.realm.kotlin:library-base:${Versions.realm}"
+    const val realmAndroid="io.realm.kotlin:library-base:${Versions.realm}"
 
     const val jUnit = "4.13.2"
     const val truth = "1.1.3"

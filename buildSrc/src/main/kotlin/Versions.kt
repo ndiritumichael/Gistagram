@@ -28,6 +28,8 @@ object Versions {
     const val apollo = "2.4.0"
     const val okhttp = "5.0.0-alpha.2"
 
+    const val realm="0.7.0"
+
     const val jUnit = "4.13.2"
     const val truth = "1.1.3"
     const val coroutinesTest = "1.5.0"

@@ -3,6 +3,7 @@ plugins {
     id("com.android.library")
     id("com.apollographql.apollo").version(Versions.apollo)
     kotlin("plugin.serialization") version Versions.kotlinSerialization
+    id("io.realm.kotlin") version Versions.realm
 }
 
 kotlin {
@@ -23,11 +24,14 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(Dependencies.koinCore)
+
                 implementation(Dependencies.ktorCore)
                 implementation(Dependencies.ktorSerialization)
                 implementation(Dependencies.ktorLogging)
                 implementation(Dependencies.kotlinSerialization)
                 implementation(Dependencies.apolloRuntime)
+
+                implementation(Dependencies.realm)
             }
         }
 
