@@ -29,7 +29,7 @@ object Versions {
     const val okhttp = "5.0.0-alpha.2"
     const val coroutinesKmm="1.5.0-native-mt"
 
-    const val sqlDelight="1.4.4"
+    const val sqlDelight="1.5.2"
 
     const val jUnit = "4.13.2"
     const val truth = "1.1.3"

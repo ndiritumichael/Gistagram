@@ -20,6 +20,7 @@ kotlin {
                 implementation(Dependencies.kotlinxSerialization)
 
                 implementation(Dependencies.sqlDelight)
+                implementation(Dependencies.sqlDelightCoroutines)
 
                 implementation(Dependencies.ktorCore)
                 implementation(Dependencies.ktorSerialization)

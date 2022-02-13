@@ -57,7 +57,8 @@ object Dependencies {
     const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
 
     const val sqlDelight = "com.squareup.sqldelight:runtime:${Versions.sqlDelight}"
-    const val sqlDelightJvm = "com.squareup.sqldelight:runtime-jvm:${Versions.sqlDelight}"
+    const val sqlDelightCoroutines =
+        "com.squareup.sqldelight:coroutines-extensions-jvm:${Versions.sqlDelight}"
     const val sqlDelightAndroid = "com.squareup.sqldelight:android-driver:${Versions.sqlDelight}"
     const val sqlDelightiOS = "com.squareup.sqldelight:native-driver:${Versions.sqlDelight}"
 

@@ -2,10 +2,18 @@ package com.vickikbt.shared.repositories.auth_repository
 
 import com.vickikbt.shared.models.dtos.TokenDto
 import com.vickikbt.shared.network.rest.ApiClient
+import com.vickikbt.shared.sqldelight.AppDatabase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.withContext
 
 class AuthRepositoryImpl constructor(
-    private val apiClient: ApiClient
+    private val apiClient: ApiClient,
+    private val appDatabase: AppDatabase
 ) : AuthRepository {
+
+    private val tokenEntityQueries = appDatabase.tokenEntityQueries
 
     override suspend fun getUserToken(
         clientId: String,
@@ -22,9 +30,26 @@ class AuthRepositoryImpl constructor(
         return response
     }
 
-    /*override suspend fun saveUserToken(tokenEntity: TokenEntity) {
-        println("Saving user token: $tokenEntity")
-        return realmDao.saveUserToken(tokenEntity = tokenEntity)
-    }*/
+    override suspend fun getToken(): Flow<String?> {
+        return withContext(Dispatchers.Default) {
+            flowOf(tokenEntityQueries.getToken().executeAsOneOrNull())
+        }
+    }
+
+    override suspend fun saveToken(accessToken: String, scope: String, tokenType: String) {
+        withContext(Dispatchers.Default) {
+            tokenEntityQueries.saveToken(
+                accessToken = accessToken,
+                scope = scope,
+                tokenType = tokenType
+            )
+        }
+    }
+
+    override suspend fun deleteToken() {
+        withContext(Dispatchers.Default) {
+            tokenEntityQueries.deleteToken()
+        }
+    }
 
 }

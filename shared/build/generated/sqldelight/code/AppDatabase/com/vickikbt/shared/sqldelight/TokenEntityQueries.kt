@@ -3,15 +3,16 @@ package com.vickikbt.shared.sqldelight
 import com.squareup.sqldelight.Query
 import com.squareup.sqldelight.Transacter
 import kotlin.String
+import kotlin.Unit
 
-interface TokenEntityQueries : Transacter {
-  fun getToken(): Query<String>
+public interface TokenEntityQueries : Transacter {
+  public fun getToken(): Query<String>
 
-  fun saveToken(
+  public fun saveToken(
     accessToken: String,
     scope: String?,
     tokenType: String?
-  )
+  ): Unit
 
-  fun deleteToken()
+  public fun deleteToken(): Unit
 }

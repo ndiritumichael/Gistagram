@@ -2,12 +2,13 @@ package com.vickikbt.shared.sqldelight.shared
 
 import com.squareup.sqldelight.Query
 import com.squareup.sqldelight.TransacterImpl
+import com.squareup.sqldelight.`internal`.copyOnWriteList
 import com.squareup.sqldelight.db.SqlDriver
-import com.squareup.sqldelight.internal.copyOnWriteList
 import com.vickikbt.shared.sqldelight.AppDatabase
 import com.vickikbt.shared.sqldelight.TokenEntityQueries
 import kotlin.Int
 import kotlin.String
+import kotlin.Unit
 import kotlin.collections.MutableList
 import kotlin.reflect.KClass
 
@@ -20,27 +21,28 @@ internal fun KClass<AppDatabase>.newInstance(driver: SqlDriver): AppDatabase =
 private class AppDatabaseImpl(
   driver: SqlDriver
 ) : TransacterImpl(driver), AppDatabase {
-  override val tokenEntityQueries: TokenEntityQueriesImpl = TokenEntityQueriesImpl(this, driver)
+  public override val tokenEntityQueries: TokenEntityQueriesImpl = TokenEntityQueriesImpl(this,
+      driver)
 
-  object Schema : SqlDriver.Schema {
-    override val version: Int
+  public object Schema : SqlDriver.Schema {
+    public override val version: Int
       get() = 1
 
-    override fun create(driver: SqlDriver) {
+    public override fun create(driver: SqlDriver): Unit {
       driver.execute(null, """
           |CREATE TABLE TokenEntity(
-          |accessToken TEXT DEFAULT NULL PRIMARY KEY ,
+          |accessToken TEXT DEFAULT NULL UNIQUE PRIMARY KEY ,
           |scope TEXT DEFAULT NULL,
           |tokenType TEXT DEFAULT NULL
           |)
           """.trimMargin(), 0)
     }
 
-    override fun migrate(
+    public override fun migrate(
       driver: SqlDriver,
       oldVersion: Int,
       newVersion: Int
-    ) {
+    ): Unit {
     }
   }
 }
@@ -51,8 +53,8 @@ private class TokenEntityQueriesImpl(
 ) : TransacterImpl(driver), TokenEntityQueries {
   internal val getToken: MutableList<Query<*>> = copyOnWriteList()
 
-  override fun getToken(): Query<String> = Query(1768241553, getToken, driver, "TokenEntity.sq",
-      "getToken", """
+  public override fun getToken(): Query<String> = Query(1768241553, getToken, driver,
+      "TokenEntity.sq", "getToken", """
   |SELECT ALL accessToken
   |FROM TokenEntity
   |WHERE accessToken IS NOT NULL
@@ -60,11 +62,11 @@ private class TokenEntityQueriesImpl(
     cursor.getString(0)!!
   }
 
-  override fun saveToken(
+  public override fun saveToken(
     accessToken: String,
     scope: String?,
     tokenType: String?
-  ) {
+  ): Unit {
     driver.execute(-1673085202, """
     |INSERT OR REPLACE
     |INTO TokenEntity
@@ -77,7 +79,7 @@ private class TokenEntityQueriesImpl(
     notifyQueries(-1673085202, {database.tokenEntityQueries.getToken})
   }
 
-  override fun deleteToken() {
+  public override fun deleteToken(): Unit {
     driver.execute(2099057408, """DELETE FROM TokenEntity""", 0)
     notifyQueries(2099057408, {database.tokenEntityQueries.getToken})
   }

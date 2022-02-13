@@ -2,12 +2,12 @@ package com.vickikbt.shared.sqldelight
 
 import kotlin.String
 
-data class TokenEntity(
-  val accessToken: String,
-  val scope: String?,
-  val tokenType: String?
+public data class TokenEntity(
+  public val accessToken: String,
+  public val scope: String?,
+  public val tokenType: String?
 ) {
-  override fun toString(): String = """
+  public override fun toString(): String = """
   |TokenEntity [
   |  accessToken: $accessToken
   |  scope: $scope

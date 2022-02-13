@@ -23,12 +23,10 @@ val commonModules = module {
     }
 
     /**
-     * Creates an open Realm database instance
+     * 
      */
 
-    //factory { RealmDao() }
-
-    single<AuthRepository> { AuthRepositoryImpl(apiClient = get()) }
+    single<AuthRepository> { AuthRepositoryImpl(apiClient = get(), appDatabase = get()) }
 
     single<ApiClient> { ApiClientImpl(httpClient = get()) }
 }
