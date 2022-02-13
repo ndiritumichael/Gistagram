@@ -12,6 +12,9 @@ import org.koin.dsl.module
 
 val commonModules = module {
 
+    /**
+     * Creates a http client for Ktor
+     */
     single {
         HttpClient {
             install(Logging) { level = LogLevel.ALL }
@@ -19,7 +22,13 @@ val commonModules = module {
         }
     }
 
-    single<AuthRepository> { AuthRepositoryImpl(get()) }
+    /**
+     * Creates an open Realm database instance
+     */
 
-    single<ApiClient> { ApiClientImpl(get()) }
+    //factory { RealmDao() }
+
+    single<AuthRepository> { AuthRepositoryImpl(apiClient = get()) }
+
+    single<ApiClient> { ApiClientImpl(httpClient = get()) }
 }

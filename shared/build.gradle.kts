@@ -3,35 +3,29 @@ plugins {
     id("com.android.library")
     id("com.apollographql.apollo").version(Versions.apollo)
     kotlin("plugin.serialization") version Versions.kotlinSerialization
-    id("io.realm.kotlin") version Versions.realm
+    id("com.squareup.sqldelight")
 }
 
 kotlin {
     android()
 
-    /*listOf(
-        iosX64(),
-        iosArm64()
-        iosSimulatorArm64(),
-    ).forEach {
-        it.binaries.framework {
-            baseName = "shared"
-        }
-    }*/
-
     sourceSets {
 
         val commonMain by getting {
             dependencies {
+                implementation(Dependencies.coroutinesKmm)
+
                 implementation(Dependencies.koinCore)
+
+                implementation(Dependencies.kotlinxSerialization)
+
+                implementation(Dependencies.sqlDelight)
 
                 implementation(Dependencies.ktorCore)
                 implementation(Dependencies.ktorSerialization)
                 implementation(Dependencies.ktorLogging)
-                implementation(Dependencies.kotlinSerialization)
-                implementation(Dependencies.apolloRuntime)
 
-                implementation(Dependencies.realm)
+                implementation(Dependencies.apolloRuntime)
             }
         }
 
@@ -45,12 +39,14 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(Dependencies.ktorAndroid)
+                implementation(Dependencies.sqlDelightAndroid)
             }
         }
 
         /*val iosMain by getting {
             dependencies {
                 implementation(Dependencies.ktoriOS)
+                implementation(Dependencies.sqlDelightiOS)
             }
         }*/
 
@@ -61,19 +57,10 @@ kotlin {
             }
         }
 
-        /*val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosMain by creating {
+        /*val iosMain by creating {
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
-        }
-        val iosX64Test by getting
-        val iosArm64Test by getting
-        val iosTest by creating {
-            dependsOn(commonTest)
-            iosX64Test.dependsOn(this)
-            iosArm64Test.dependsOn(this)
         }*/
 
     }
@@ -89,7 +76,14 @@ android {
 }
 
 
-/*apollo {
-    packageName.set("com.vickikbt.gistagram")
-    generateOptionalOperationVariables.set(false)
+/*sqldelight {
+    database("AppDatabase") {
+        packageName = "com.vickikbt.shared.cache.sqldelight"
+    }
 }*/
+
+sqldelight {
+    database(name = "AppDatabase") {
+        packageName = "com.vickikbt.shared.sqldelight"
+    }
+}

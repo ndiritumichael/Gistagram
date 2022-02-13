@@ -24,11 +24,12 @@ object Versions {
 
     const val ktor="1.6.7"
     const val kotlinSerialization="1.6.10"
-    const val kotlinJsonSerialization="1.3.2"
+    const val kotlinxSerialization="1.2.2"
     const val apollo = "2.4.0"
     const val okhttp = "5.0.0-alpha.2"
+    const val coroutinesKmm="1.5.0-native-mt"
 
-    const val realm="0.7.0"
+    const val sqlDelight="1.4.4"
 
     const val jUnit = "4.13.2"
     const val truth = "1.1.3"

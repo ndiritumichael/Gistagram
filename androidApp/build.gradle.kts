@@ -28,7 +28,6 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion = Versions.compose
-        kotlinCompilerVersion = Versions.composeCompiler
     }
 
     buildTypes {
@@ -94,9 +93,6 @@ dependencies {
     //Apollo
     implementation(Dependencies.apolloRuntime)
     implementation(Dependencies.apolloCoroutines)
-
-    //Realm
-    compileOnly(Dependencies.realmAndroid)
 
     //Accompanist Libs
     implementation(Dependencies.accompanistNavigationAnimation)

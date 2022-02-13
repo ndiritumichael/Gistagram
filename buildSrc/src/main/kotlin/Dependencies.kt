@@ -19,7 +19,6 @@ object Dependencies {
     const val accompanistNavigationAnimation =
         "com.google.accompanist:accompanist-navigation-animation:${Versions.accompanist}"
 
-    const val koinCore = "io.insert-koin:koin-core:${Versions.koin}"
     const val koinAndroid = "io.insert-koin:koin-android:${Versions.koin}"
     const val koinCompose = "io.insert-koin:koin-androidx-compose:${Versions.koin}"
 
@@ -34,19 +33,34 @@ object Dependencies {
     const val pagingCompose = "1.0.0-alpha14"
     const val splashScreen = "androidx.core:core-splashscreen:${Versions.splashScreen}"
 
+    //KMM Libraries
+    const val coroutinesKmm =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesKmm}"
+
+    const val koinCore = "io.insert-koin:koin-core:${Versions.koin}"
+
+    const val kotlinxSerialization =
+        "org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.kotlinxSerialization}"
+
     const val ktorCore = "io.ktor:ktor-client-core:${Versions.ktor}"
+    const val ktorSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
     const val ktorAndroid = "io.ktor:ktor-client-android:${Versions.ktor}"
     const val ktoriOS = "io.ktor:ktor-client-ios:${Versions.ktor}"
-    const val ktorSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
     const val ktorLogging = "io.ktor:ktor-client-logging:${Versions.ktor}"
-    const val kotlinSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinJsonSerialization}"
+
     const val apolloRuntime = "com.apollographql.apollo:apollo-runtime:${Versions.apollo}"
-    const val apolloCoroutines = "com.apollographql.apollo:apollo-coroutines-support:${Versions.apollo}"
+    const val apolloCoroutines =
+        "com.apollographql.apollo:apollo-coroutines-support:${Versions.apollo}"
+
     const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
+
     const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
 
-    const val realm = "io.realm.kotlin:library-base:${Versions.realm}"
-    const val realmAndroid="io.realm.kotlin:library-base:${Versions.realm}"
+    const val sqlDelight = "com.squareup.sqldelight:runtime:${Versions.sqlDelight}"
+    const val sqlDelightJvm = "com.squareup.sqldelight:runtime-jvm:${Versions.sqlDelight}"
+    const val sqlDelightAndroid = "com.squareup.sqldelight:android-driver:${Versions.sqlDelight}"
+    const val sqlDelightiOS = "com.squareup.sqldelight:native-driver:${Versions.sqlDelight}"
+
 
     const val jUnit = "4.13.2"
     const val truth = "1.1.3"
