@@ -23,9 +23,13 @@ class AuthRepositoryImpl constructor(
         val response =
             apiClient.getUserToken(clientId = clientId, clientSecret = clientSecret, code = code)
 
-        /*response?.let {
-            saveUserToken(tokenEntity = it.toEntity())
-        }*/
+        response?.let {
+            saveToken(
+                accessToken = response.accessToken,
+                scope = response.scope,
+                tokenType = response.tokenType
+            )
+        }
 
         return response
     }
