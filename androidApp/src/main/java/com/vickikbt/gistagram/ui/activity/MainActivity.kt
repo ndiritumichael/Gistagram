@@ -12,12 +12,15 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.vickikbt.gistagram.ui.components.BottomNavBar
 import com.vickikbt.gistagram.ui.navigation.Navigation
 import com.vickikbt.gistagram.ui.navigation.NavigationItem
+import com.vickikbt.gistagram.ui.screens.auth.AuthViewModel
 import com.vickikbt.gistagram.ui.theme.GistagramTheme
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @ExperimentalMaterialApi
 @ExperimentalFoundationApi

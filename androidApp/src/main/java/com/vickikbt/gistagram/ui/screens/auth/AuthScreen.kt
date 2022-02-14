@@ -3,7 +3,6 @@ package com.vickikbt.gistagram.ui.screens.auth
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,8 +13,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -33,13 +31,21 @@ import com.vickikbt.gistagram.R
 import com.vickikbt.gistagram.utils.Constants
 import com.vickikbt.gistagram.utils.findActivity
 import org.koin.androidx.compose.getViewModel
-import timber.log.Timber
 import java.util.*
 
 @Composable
 fun AuthScreen(navController: NavController, viewModel: AuthViewModel = getViewModel()) {
 
     val context = LocalContext.current
+
+    viewModel.getToken()
+
+    val isUserLoggedIn by remember { mutableStateOf(viewModel.userToken.value) }
+    if (isUserLoggedIn.isNullOrEmpty()) {
+        //ToDo: Stay here
+    } else {
+        //ToDo: Set home as start destination
+    }
 
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
         val (imageLogo, buttonLogin) = createRefs()
@@ -104,7 +110,7 @@ fun onResume(context: Context, viewModel: AuthViewModel) {
     if (uri != null && uri.toString().startsWith(Constants.REDIRECT_URL)) {
         val code = uri.getQueryParameter("code")
         code?.let {
-            viewModel.getUserToken(code = it)
+            viewModel.fetchUserToken(code = it)
         }
     }
 }

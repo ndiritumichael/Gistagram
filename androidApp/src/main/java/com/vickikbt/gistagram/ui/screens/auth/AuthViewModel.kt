@@ -1,5 +1,8 @@
 package com.vickikbt.gistagram.ui.screens.auth
 
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vickikbt.gistagram.utils.Constants
@@ -10,13 +13,12 @@ import timber.log.Timber
 
 class AuthViewModel constructor(private val authRepository: AuthRepository) : ViewModel() {
 
-    init {
-        //getToken()
-    }
+    private val _userToken: MutableState<String?> = mutableStateOf(null)
+    val userToken: State<String?> get() = _userToken
 
-    fun getUserToken(code: String) {
+    fun fetchUserToken(code: String) {
         viewModelScope.launch {
-            val response = authRepository.getUserToken(
+            authRepository.getUserToken(
                 clientId = Constants.CLIENT_ID,
                 clientSecret = Constants.CLIENT_SECRET,
                 code = code
@@ -26,8 +28,7 @@ class AuthViewModel constructor(private val authRepository: AuthRepository) : Vi
 
     fun getToken() {
         viewModelScope.launch {
-            val response = authRepository.getToken().first()
-            Timber.e("Token saved: $response")
+            _userToken.value = authRepository.getToken().first()
         }
     }
 

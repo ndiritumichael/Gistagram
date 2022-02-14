@@ -4,6 +4,7 @@ plugins {
     id("com.apollographql.apollo3").version(Versions.apollo)
     kotlin("plugin.serialization") version Versions.kotlinSerialization
     id("io.realm.kotlin") version Versions.realm
+    id("de.jensklingenberg.cabret")
 }
 
 kotlin {
@@ -28,6 +29,8 @@ kotlin {
                 implementation(Dependencies.apolloRuntime)
                 //implementation(Dependencies.apolloCoroutines)
                 //implementation(Dependencies.apolloNormalizedCache)
+
+                implementation(Dependencies.cabretLog)
             }
         }
 
@@ -48,6 +51,7 @@ kotlin {
             dependencies {
                 implementation(Dependencies.ktoriOS)
                 implementation(Dependencies.sqlDelightiOS)
+                implementation(Dependencies.cabretLogiOS)
             }
         }*/
 
@@ -78,4 +82,9 @@ android {
 
 apollo {
     packageName.set("com.vickikbt.gistagram")
+}
+
+configure<de.jensklingenberg.gradle.CabretGradleExtension> {
+    enabled = true
+    version = "1.0.4"
 }

@@ -33,6 +33,8 @@ object Versions {
     const val realm = "0.7.0"
     //const val sqlDelight="1.5.2"
 
+    const val cabretLog="1.0.4"
+
     const val jUnit = "4.13.2"
     const val truth = "1.1.3"
     const val coroutinesTest = "1.5.0"

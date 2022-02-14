@@ -21,7 +21,10 @@ class GistagramApplication : Application() {
             modules(appModules)
         }
 
-        if (BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
+        if (BuildConfig.DEBUG){
+            Timber.plant(Timber.DebugTree())
+            //Napier.base()
+        }
     }
 
 }

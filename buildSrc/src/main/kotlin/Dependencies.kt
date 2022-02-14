@@ -68,6 +68,13 @@ object Dependencies {
 
     const val realm = "io.realm.kotlin:library-base:${Versions.realm}"
 
+    const val cabretLog = "de.jensklingenberg.cabret:cabret-log:${Versions.cabretLog}"
+    const val cabretLogAndroid =
+        "de.jensklingenberg.cabret:cabret-log-android:${Versions.cabretLog}"
+    const val cabretLogiOS = "de.jensklingenberg.cabret:cabret-log-iosx64:${Versions.cabretLog}"
+    const val cabretLogJvm = "de.jensklingenberg.cabret:cabret-log-jvm:${Versions.cabretLog}"
+
+
     const val jUnit = "4.13.2"
     const val truth = "1.1.3"
     const val coroutinesTest = "1.5.0"
