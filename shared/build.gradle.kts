@@ -3,7 +3,7 @@ plugins {
     id("com.android.library")
     id("com.apollographql.apollo").version(Versions.apollo)
     kotlin("plugin.serialization") version Versions.kotlinSerialization
-    id("com.squareup.sqldelight")
+    id("io.realm.kotlin") version Versions.realm
 }
 
 kotlin {
@@ -19,12 +19,11 @@ kotlin {
 
                 implementation(Dependencies.kotlinxSerialization)
 
-                implementation(Dependencies.sqlDelight)
-                implementation(Dependencies.sqlDelightCoroutines)
-
                 implementation(Dependencies.ktorCore)
                 implementation(Dependencies.ktorSerialization)
                 implementation(Dependencies.ktorLogging)
+
+                implementation(Dependencies.realm)
 
                 implementation(Dependencies.apolloRuntime)
             }
@@ -40,7 +39,6 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(Dependencies.ktorAndroid)
-                implementation(Dependencies.sqlDelightAndroid)
             }
         }
 
@@ -73,18 +71,5 @@ android {
     defaultConfig {
         minSdk = AndroidSdk.minSdkVersion
         targetSdk = AndroidSdk.targetSdkVersion
-    }
-}
-
-
-/*sqldelight {
-    database("AppDatabase") {
-        packageName = "com.vickikbt.shared.cache.sqldelight"
-    }
-}*/
-
-sqldelight {
-    database(name = "AppDatabase") {
-        packageName = "com.vickikbt.shared.sqldelight"
     }
 }

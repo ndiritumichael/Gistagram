@@ -1,22 +1,24 @@
 package com.vickikbt.shared.di
 
-import com.vickikbt.shared.cache.sqldelight.DatabaseDriverFactory
-import com.vickikbt.shared.cache.sqldelight.createDatabase
-import com.vickikbt.shared.network.rest.ApiClient
-import com.vickikbt.shared.network.rest.ApiClientImpl
-import com.vickikbt.shared.repositories.auth_repository.AuthRepository
-import com.vickikbt.shared.repositories.auth_repository.AuthRepositoryImpl
-import com.vickikbt.shared.sqldelight.AppDatabase
+import com.vickikbt.shared.data.cache.realm.TokenDao
+import com.vickikbt.shared.data.models.entities.TokenEntity
+import com.vickikbt.shared.data.network.rest.ApiClient
+import com.vickikbt.shared.data.network.rest.ApiClientImpl
+import com.vickikbt.shared.data.repositories.auth_repository.AuthRepository
+import com.vickikbt.shared.data.repositories.auth_repository.AuthRepositoryImpl
 import io.ktor.client.*
 import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
 import io.ktor.client.features.logging.*
+import io.realm.Realm
+import io.realm.RealmConfiguration
 import org.koin.dsl.module
 
 val commonModules = module {
 
     /**
-     * Creates a http client for Ktor
+     * Creates a http client for Ktor that is provided to the
+     * API client via constructor injection
      */
     single {
         HttpClient {
@@ -24,22 +26,16 @@ val commonModules = module {
             install(JsonFeature) { serializer = KotlinxSerializer() }
         }
     }
+    single<ApiClient> { ApiClientImpl(httpClient = get()) }
 
     /**
-     *
+     *Create instance of realm config need to
+     * instantiate realm db instance that is
+     * provided to DAOs through constructor injection
      */
+    single { RealmConfiguration.with(schema = setOf(TokenEntity::class)) }
+    single { Realm.open(configuration = get()) }
+    single { TokenDao(appDatabase = get()) }
 
-    //ToDo: Provide instance of sqlDelight. For all platforms?
-    /*single {
-        createDatabase(driverFactory = DatabaseDriverFactory)
-    }*/
-
-    single<AuthRepository> { AuthRepositoryImpl(apiClient = get(), appDatabase = get()) }
-
-    single<ApiClient> { ApiClientImpl(httpClient = get()) }
+    single<AuthRepository> { AuthRepositoryImpl(apiClient = get(), tokenDao = get()) }
 }
-
-/*
-private fun provideSqlDriver(app:ContentType.Application){
-    return
-}*/
