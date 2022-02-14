@@ -1,5 +1,5 @@
 object Versions {
-    const val gradle = "7.0.4"
+    const val gradle = "7.1.0"
     const val kotlin = "1.5.30"
     const val androidCore = "1.7.0"
     const val appCompat = "1.4.1"
@@ -25,7 +25,7 @@ object Versions {
     const val ktor = "1.6.7"
     const val kotlinSerialization = "1.6.10"
     const val kotlinxSerialization = "1.2.2"
-    const val apollo = "3.1.0"
+    const val apollo = "3.0.0"
     const val multiplatformPaging = "0.4.7"
     const val okhttp = "5.0.0-alpha.2"
     const val coroutinesKmm = "1.5.0-native-mt"

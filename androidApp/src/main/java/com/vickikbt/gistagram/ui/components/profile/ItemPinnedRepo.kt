@@ -24,7 +24,7 @@ import com.vickikbt.gistagram.ui.components.ItemCircleRepo
 fun ItemPinnedRepo(
     modifier: Modifier = Modifier,
     @DrawableRes image: Int = R.drawable.ic_logo,
-    pinnedRepo: UserProfileQuery.AsRepository?,
+    pinnedRepo: LoggedInUserProfile.graphql.AsRepository?,
     onItemClicked: (String) -> Unit
 ) {
 

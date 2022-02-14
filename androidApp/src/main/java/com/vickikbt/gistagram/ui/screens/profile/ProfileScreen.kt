@@ -78,7 +78,7 @@ fun ProfileScreen(
 }
 
 @Composable
-private fun StatSection(user: UserProfileQuery.User?) {
+private fun StatSection(user: LoggedInUserProfile.graphql.User?) {
     val userProfilePainter = rememberImagePainter(data = user?.avatarUrl()) {
         placeholder(R.drawable.ic_logo)
         crossfade(true)
@@ -104,7 +104,7 @@ private fun StatSection(user: UserProfileQuery.User?) {
 }
 
 @Composable
-fun BioSection(user: UserProfileQuery.User?) {
+fun BioSection(user: LoggedInUserProfile.graphql.User?) {
     val letterSpacing = 0.5.sp
     val lineHeight = 20.sp
 
@@ -223,8 +223,8 @@ fun BioSection(user: UserProfileQuery.User?) {
 }
 
 @Composable
-fun PinnedRepoSection(pinnedRepo: List<UserProfileQuery.Node2?>?) {
-    val pinnedRepoList = mutableListOf<UserProfileQuery.AsRepository?>()
+fun PinnedRepoSection(pinnedRepo: List<LoggedInUserProfile.graphql.Node2?>?) {
+    val pinnedRepoList = mutableListOf<LoggedInUserProfile.graphql.AsRepository?>()
     //pinnedRepo?.forEach { pinnedRepoList.add(it?.asRepository) }
 
     LazyRow(modifier = Modifier) {
@@ -242,7 +242,7 @@ fun PinnedRepoSection(pinnedRepo: List<UserProfileQuery.Node2?>?) {
 @Composable
 fun RepositoriesSection(
     modifier: Modifier = Modifier,
-    repos: List<UserProfileQuery.Node3?>?
+    repos: List<LoggedInUserProfile.graphql.Node3?>?
 ) {
 
     var selectedTabIndex by remember { mutableStateOf(0) }

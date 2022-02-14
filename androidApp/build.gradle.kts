@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.config.JvmAnalysisFlags.useIR
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -47,7 +49,7 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
-        useIR = true
+        useIR=true
     }
 
     packagingOptions {

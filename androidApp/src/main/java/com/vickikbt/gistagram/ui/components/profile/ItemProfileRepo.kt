@@ -23,7 +23,7 @@ import com.vickikbt.gistagram.R
 @Composable
 fun ItemProfileRepo(
     modifier: Modifier = Modifier,
-    repo: UserProfileQuery.Node3?,
+    repo: LoggedInUserProfile.graphql.Node3?,
     onItemClicked: (String) -> Unit
 ) {
 

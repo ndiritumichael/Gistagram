@@ -1,6 +1,4 @@
 object Dependencies {
-    const val kotlin = "1.5.30"
-
     const val androidCore = "androidx.core:core-ktx:${Versions.androidCore}"
 
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"

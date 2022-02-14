@@ -1,7 +1,7 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("com.apollographql.apollo3").version(Versions.apollo)
+    id("com.apollographql.apollo3")
     kotlin("plugin.serialization") version Versions.kotlinSerialization
     id("io.realm.kotlin") version Versions.realm
     id("de.jensklingenberg.cabret")

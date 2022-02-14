@@ -6,6 +6,8 @@ import com.vickikbt.shared.data.network.rest.ApiClient
 import com.vickikbt.shared.data.network.rest.ApiClientImpl
 import com.vickikbt.shared.data.repositories.auth_repository.AuthRepository
 import com.vickikbt.shared.data.repositories.auth_repository.AuthRepositoryImpl
+import com.vickikbt.shared.data.repositories.profile_repository.ProfileRepository
+import com.vickikbt.shared.data.repositories.profile_repository.ProfileRepositoryImpl
 import io.ktor.client.*
 import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
@@ -60,4 +62,5 @@ val commonModules = module {
     }*/
 
     single<AuthRepository> { AuthRepositoryImpl(apiClient = get(), tokenDao = get()) }
+    single<ProfileRepository> { ProfileRepositoryImpl() }
 }

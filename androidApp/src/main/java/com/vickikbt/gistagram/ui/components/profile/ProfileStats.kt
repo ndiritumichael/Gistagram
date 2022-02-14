@@ -16,7 +16,7 @@ import com.vickikbt.gistagram.R
 
 /*
 @Composable
-fun ProfileStats(modifier: Modifier = Modifier, user: UserProfileQuery.User?) {
+fun ProfileStats(modifier: Modifier = Modifier, user: LoggedInUserProfile.graphql.User?) {
 
     Row(
         modifier = modifier,
