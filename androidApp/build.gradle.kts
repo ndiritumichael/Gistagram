@@ -2,7 +2,6 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-kapt")
-    id("com.apollographql.apollo").version("2.4.0")
 }
 
 android {
@@ -90,10 +89,6 @@ dependencies {
     implementation(Dependencies.okhttp)
     implementation(Dependencies.loggingInterceptor)
 
-    //Apollo
-    implementation(Dependencies.apolloRuntime)
-    implementation(Dependencies.apolloCoroutines)
-
     //Accompanist Libs
     implementation(Dependencies.accompanistNavigationAnimation)
 
@@ -108,5 +103,4 @@ dependencies {
 
     //Compose Navigation-Navigation between various screens
     implementation(Dependencies.navigation)
-
 }

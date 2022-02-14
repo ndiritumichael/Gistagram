@@ -1,10 +1,7 @@
 package com.vickikbt.gistagram
 
 import android.app.Application
-import com.vickikbt.gistagram.di.cacheModule
-import com.vickikbt.gistagram.di.networkModule
 import com.vickikbt.gistagram.di.presentationModule
-import com.vickikbt.gistagram.di.repositoryModule
 import com.vickikbt.shared.di.initKoin
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -16,7 +13,7 @@ class GistagramApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        val appModules = listOf(cacheModule, networkModule, repositoryModule, presentationModule)
+        val appModules = listOf(presentationModule)
 
         initKoin {
             androidLogger(if (BuildConfig.DEBUG) Level.ERROR else Level.NONE)

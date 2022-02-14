@@ -10,7 +10,6 @@ import androidx.navigation.compose.composable
 import com.vickikbt.gistagram.ui.screens.auth.AuthScreen
 import com.vickikbt.gistagram.ui.screens.home.HomeScreen
 import com.vickikbt.gistagram.ui.screens.notifications.NotificationsScreen
-import com.vickikbt.gistagram.ui.screens.profile.ProfileScreen
 import com.vickikbt.gistagram.ui.screens.search.SearchScreen
 import com.vickikbt.gistagram.ui.screens.settings.SettingsScreen
 import com.vickikbt.gistagram.ui.screens.webview.WebViewScreen
@@ -42,7 +41,7 @@ fun Navigation(navController: NavHostController) {
         }
 
         composable(route = NavigationItem.Profile.route) {
-            ProfileScreen(navController = navController)
+            //ProfileScreen(navController = navController)
         }
 
         composable(route = NavigationItem.Settings.route) {

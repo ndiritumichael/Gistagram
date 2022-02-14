@@ -17,9 +17,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.vickikbt.gistagram.R
-import com.vickikbt.gistagram.UserProfileQuery
 import com.vickikbt.gistagram.ui.components.ItemCircleRepo
 
+/*
 @Composable
 fun ItemPinnedRepo(
     modifier: Modifier = Modifier,
@@ -54,4 +54,4 @@ fun ItemPinnedRepo(
         )
     }
 
-}
+}*/

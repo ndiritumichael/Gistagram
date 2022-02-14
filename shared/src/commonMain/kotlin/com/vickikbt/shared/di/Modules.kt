@@ -13,6 +13,7 @@ import io.ktor.client.features.logging.*
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import org.koin.dsl.module
+import java.util.concurrent.TimeUnit
 
 val commonModules = module {
 
@@ -36,6 +37,27 @@ val commonModules = module {
     single { RealmConfiguration.with(schema = setOf(TokenEntity::class)) }
     single { Realm.open(configuration = get()) }
     single { TokenDao(appDatabase = get()) }
+
+    /*single {
+        ApolloClient.builder()
+            .serverUrl("https://api.github.com/graphql")
+            .build()
+    }*/
+
+    /*private fun provideOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder()
+            .addInterceptor(provideLoggingInterceptor())
+            .addInterceptor { chain ->
+                val newRequest = chain.request().newBuilder()
+                    .addHeader("Authorization", "Bearer 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") //ToDo: Add to Git Igore
+                    .build()
+                chain.proceed(newRequest)
+            }
+            .callTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
+            .build()
+    }*/
 
     single<AuthRepository> { AuthRepositoryImpl(apiClient = get(), tokenDao = get()) }
 }

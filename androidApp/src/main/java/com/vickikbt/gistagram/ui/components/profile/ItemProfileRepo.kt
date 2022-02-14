@@ -17,8 +17,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import com.vickikbt.gistagram.R
-import com.vickikbt.gistagram.UserProfileQuery
 
+/*
 @ExperimentalMaterialApi
 @Composable
 fun ItemProfileRepo(
@@ -83,4 +83,4 @@ fun ItemProfileRepo(
 
     }
 
-}
+}*/

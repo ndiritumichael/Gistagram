@@ -1,7 +1,7 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("com.apollographql.apollo").version(Versions.apollo)
+    id("com.apollographql.apollo3").version(Versions.apollo)
     kotlin("plugin.serialization") version Versions.kotlinSerialization
     id("io.realm.kotlin") version Versions.realm
 }
@@ -26,6 +26,8 @@ kotlin {
                 implementation(Dependencies.realm)
 
                 implementation(Dependencies.apolloRuntime)
+                //implementation(Dependencies.apolloCoroutines)
+                //implementation(Dependencies.apolloNormalizedCache)
             }
         }
 
@@ -72,4 +74,8 @@ android {
         minSdk = AndroidSdk.minSdkVersion
         targetSdk = AndroidSdk.targetSdkVersion
     }
+}
+
+apollo {
+    packageName.set("com.vickikbt.gistagram")
 }

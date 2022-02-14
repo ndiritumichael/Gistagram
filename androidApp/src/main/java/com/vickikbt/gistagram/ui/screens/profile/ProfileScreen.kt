@@ -25,20 +25,20 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import com.vickikbt.gistagram.R
-import com.vickikbt.gistagram.UserProfileQuery
 import com.vickikbt.gistagram.ui.components.ItemCircleImage
 import com.vickikbt.gistagram.ui.components.profile.*
-import com.vickikbt.gistagram.ui.screens.profile.tabs.RepositoriesTab
 import org.koin.androidx.compose.getViewModel
 
+/*
 @ExperimentalMaterialApi
 @Composable
 fun ProfileScreen(
-    navController: NavController? = null,
-    viewModel: ProfileViewModel = getViewModel()
+    navController: NavController? = null
+    //viewModel: ProfileViewModel = getViewModel()
 ) {
 
-    val userProfileResult = viewModel.userProfile.observeAsState().value
+   */
+/* val userProfileResult = viewModel.userProfile.observeAsState().value
     val user = userProfileResult?.data?.data?.user()
 
     Column(modifier = Modifier.fillMaxSize()) {
@@ -251,7 +251,8 @@ fun RepositoriesSection(
 
     when (selectedTabIndex) {
         0 -> RepositoriesTab(repos = repos)
-    }
+    }*//*
+
 
 }
 
@@ -260,4 +261,4 @@ fun RepositoriesSection(
 @Composable
 fun Preview() {
     ProfileScreen()
-}
+}*/

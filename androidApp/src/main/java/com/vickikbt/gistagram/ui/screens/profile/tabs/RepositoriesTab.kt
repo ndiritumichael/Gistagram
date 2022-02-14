@@ -1,13 +1,6 @@
 package com.vickikbt.gistagram.ui.screens.profile.tabs
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import com.vickikbt.gistagram.UserProfileQuery
-import com.vickikbt.gistagram.ui.components.profile.ItemProfileRepo
-
+/*
 @ExperimentalMaterialApi
 @Composable
 fun RepositoriesTab(modifier: Modifier = Modifier, repos: List<UserProfileQuery.Node3?>?) {
@@ -18,4 +11,4 @@ fun RepositoriesTab(modifier: Modifier = Modifier, repos: List<UserProfileQuery.
             }
         }
     }
-}
+}*/
