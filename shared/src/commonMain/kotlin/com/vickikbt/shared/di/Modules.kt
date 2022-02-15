@@ -1,7 +1,9 @@
 package com.vickikbt.shared.di
 
+import com.apollographql.apollo3.ApolloClient
 import com.vickikbt.shared.data.cache.realm.TokenDao
 import com.vickikbt.shared.data.models.entities.TokenEntity
+import com.vickikbt.shared.data.network.graphql.AuthorizationInterceptor
 import com.vickikbt.shared.data.network.rest.ApiClient
 import com.vickikbt.shared.data.network.rest.ApiClientImpl
 import com.vickikbt.shared.data.repositories.auth_repository.AuthRepository
@@ -15,7 +17,6 @@ import io.ktor.client.features.logging.*
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import org.koin.dsl.module
-import java.util.concurrent.TimeUnit
 
 val commonModules = module {
 
@@ -25,7 +26,10 @@ val commonModules = module {
      */
     single {
         HttpClient {
-            install(Logging) { level = LogLevel.ALL }
+            install(Logging) {
+                logger = Logger.DEFAULT
+                level = LogLevel.ALL
+            }
             install(JsonFeature) { serializer = KotlinxSerializer() }
         }
     }
@@ -40,26 +44,19 @@ val commonModules = module {
     single { Realm.open(configuration = get()) }
     single { TokenDao(appDatabase = get()) }
 
-    /*single {
-        ApolloClient.builder()
+    /**
+     * Creates instance of AuthorizationInterceptor that is used to authenticate network
+     * calls to GitHub graphql API made by Apollo and provided to the Apollo Client instance
+     * as a HttpInterceptor
+     */
+    single { AuthorizationInterceptor(tokenDao = get()) }
+    single {
+        ApolloClient.Builder()
             .serverUrl("https://api.github.com/graphql")
+            .addHttpInterceptor(AuthorizationInterceptor(get()))
             .build()
-    }*/
+    }
 
-    /*private fun provideOkHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder()
-            .addInterceptor(provideLoggingInterceptor())
-            .addInterceptor { chain ->
-                val newRequest = chain.request().newBuilder()
-                    .addHeader("Authorization", "Bearer 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") //ToDo: Add to Git Igore
-                    .build()
-                chain.proceed(newRequest)
-            }
-            .callTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
-            .writeTimeout(30, TimeUnit.SECONDS)
-            .build()
-    }*/
 
     single<AuthRepository> { AuthRepositoryImpl(apiClient = get(), tokenDao = get()) }
     single<ProfileRepository> { ProfileRepositoryImpl() }
