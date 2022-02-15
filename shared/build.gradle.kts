@@ -86,5 +86,5 @@ apollo {
 
 configure<de.jensklingenberg.gradle.CabretGradleExtension> {
     enabled = true
-    version = "1.0.4"
+    version = Versions.cabretLog
 }
