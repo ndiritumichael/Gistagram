@@ -57,7 +57,9 @@ val commonModules = module {
             .build()
     }
 
-
+    /**
+     * Injecting to repositories
+     */
     single<AuthRepository> { AuthRepositoryImpl(apiClient = get(), tokenDao = get()) }
     single<ProfileRepository> { ProfileRepositoryImpl() }
 }

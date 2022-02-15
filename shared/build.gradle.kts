@@ -1,7 +1,8 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("com.apollographql.apollo3")
+    id("io.gitlab.arturbosch.detekt").version(Versions.detekt)
+    id("com.apollographql.apollo3").version(Versions.apollo)
     kotlin("plugin.serialization") version Versions.kotlinSerialization
     id("io.realm.kotlin") version Versions.realm
     id("de.jensklingenberg.cabret")
@@ -27,8 +28,8 @@ kotlin {
                 implementation(Dependencies.realm)
 
                 implementation(Dependencies.apolloRuntime)
-                //implementation(Dependencies.apolloCoroutines)
-                //implementation(Dependencies.apolloNormalizedCache)
+                // implementation(Dependencies.apolloCoroutines)
+                // implementation(Dependencies.apolloNormalizedCache)
 
                 implementation(Dependencies.cabretLog)
             }
@@ -67,7 +68,6 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
         }*/
-
     }
 }
 
@@ -82,9 +82,16 @@ android {
 
 apollo {
     packageName.set("com.vickikbt.gistagram")
+    // generateOptionalOperationVariables.set(false)
 }
 
 configure<de.jensklingenberg.gradle.CabretGradleExtension> {
     enabled = true
     version = Versions.cabretLog
+}
+
+detekt {
+    toolVersion = Versions.detekt
+    config = files("config/detekt/detekt.yml")
+    buildUponDefaultConfig = true
 }
