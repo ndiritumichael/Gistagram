@@ -38,8 +38,6 @@ fun AuthScreen(navController: NavController, viewModel: AuthViewModel = getViewM
 
     val context = LocalContext.current
 
-    viewModel.getToken()
-
     val isUserLoggedIn by remember { mutableStateOf(viewModel.userToken.value) }
     if (isUserLoggedIn.isNullOrEmpty()) {
         //ToDo: Stay here

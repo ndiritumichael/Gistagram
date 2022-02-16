@@ -1,12 +1,12 @@
 object Versions {
     const val gradle = "7.1.1"
-    const val kotlin = "1.5.30"
+    const val kotlin = "1.6.10"
     const val detekt = "1.19.0"
 
     const val androidCore = "1.7.0"
     const val appCompat = "1.4.1"
     const val material = "1.4.0"
-    const val compose = "1.0.3"
+    const val compose = "1.1.0"
     const val composeActivity = "1.4.0"
     const val composeCompiler = "1.5.21"
     const val composeConstraint = "1.0.0-rc01"
@@ -32,7 +32,7 @@ object Versions {
     const val okhttp = "5.0.0-alpha.2"
     const val coroutinesKmm = "1.5.0-native-mt"
 
-    const val realm = "0.7.0"
+    const val realm = "0.9.0"
     // const val sqlDelight="1.5.2"
 
     const val cabretLog = "1.0.4"

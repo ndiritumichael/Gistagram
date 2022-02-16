@@ -5,7 +5,7 @@ plugins {
     id("com.apollographql.apollo3").version(Versions.apollo)
     kotlin("plugin.serialization") version Versions.kotlinSerialization
     id("io.realm.kotlin") version Versions.realm
-    id("de.jensklingenberg.cabret")
+    //id("de.jensklingenberg.cabret")
 }
 
 kotlin {
@@ -82,13 +82,12 @@ android {
 
 apollo {
     packageName.set("com.vickikbt.gistagram")
-    // generateOptionalOperationVariables.set(false)
 }
 
-configure<de.jensklingenberg.gradle.CabretGradleExtension> {
+/*configure<de.jensklingenberg.gradle.CabretGradleExtension> {
     enabled = true
     version = Versions.cabretLog
-}
+}*/
 
 detekt {
     toolVersion = Versions.detekt

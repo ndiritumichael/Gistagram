@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.config.JvmAnalysisFlags.useIR
+
 
 plugins {
     id("com.android.application")
@@ -49,7 +49,7 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
-        useIR=true
+        // useIR=true
     }
 
     packagingOptions {
@@ -60,7 +60,6 @@ android {
             excludes += setOf("META-INF/licenses/**", "META-INF/AL2.0", "META-INF/LGPL2.1")
         }
     }
-
 }
 
 dependencies {
@@ -76,33 +75,33 @@ dependencies {
     implementation(Dependencies.composeMaterial)
     implementation(Dependencies.composeTooling)
     implementation(Dependencies.composeConstraint)
-    //androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    // androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     implementation(Dependencies.composeLiveData)
-    //debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    // debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation(Dependencies.composeActivity)
 
     implementation(Dependencies.lifeCycleRuntime)
 
-    //Koin-Dependency injection
-    //implementation(Dependencies.koinAndroid)
+    // Koin-Dependency injection
+    // implementation(Dependencies.koinAndroid)
     implementation(Dependencies.koinCompose)
 
-    //OkHttp
+    // OkHttp
     implementation(Dependencies.okhttp)
     implementation(Dependencies.loggingInterceptor)
 
-    //Accompanist Libs
+    // Accompanist Libs
     implementation(Dependencies.accompanistNavigationAnimation)
 
-    //Splash Screen API
+    // Splash Screen API
     implementation(Dependencies.splashScreen)
 
-    //Coil-Image Loader
+    // Coil-Image Loader
     implementation(Dependencies.coil)
 
-    //Timber-Logging
+    // Timber-Logging
     implementation(Dependencies.timber)
 
-    //Compose Navigation-Navigation between various screens
+    // Compose Navigation-Navigation between various screens
     implementation(Dependencies.navigation)
 }

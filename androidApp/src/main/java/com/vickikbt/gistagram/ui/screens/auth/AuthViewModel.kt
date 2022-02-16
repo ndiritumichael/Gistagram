@@ -7,9 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vickikbt.gistagram.utils.Constants
 import com.vickikbt.shared.data.repositories.auth_repository.AuthRepository
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 class AuthViewModel constructor(private val authRepository: AuthRepository) : ViewModel() {
 
@@ -28,8 +26,7 @@ class AuthViewModel constructor(private val authRepository: AuthRepository) : Vi
 
     fun getToken() {
         viewModelScope.launch {
-            _userToken.value = authRepository.getToken().first()
+            // _userToken.value = authRepository.getToken().first()
         }
     }
-
 }

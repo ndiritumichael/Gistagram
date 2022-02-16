@@ -2,9 +2,9 @@ package com.vickikbt.shared.data.cache.realm
 
 import com.vickikbt.shared.data.models.entities.TokenEntity
 import io.realm.Realm
+import io.realm.query
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
 
 class TokenDao constructor(private val appDatabase: Realm) {
@@ -17,9 +17,7 @@ class TokenDao constructor(private val appDatabase: Realm) {
         }
     }
 
-    val getToken = flowOf(appDatabase.objects(TokenEntity::class).query().first().accessToken)
+    val getToken = appDatabase.query<TokenEntity>().find().asFlow()
 
-    fun deleteToken() = appDatabase.objects(TokenEntity::class).delete()
-
-
+    fun deleteToken() = appDatabase.query<TokenEntity>().find().delete()
 }
